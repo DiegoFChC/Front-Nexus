@@ -1,8 +1,11 @@
 import "./navDrawer.scss";
 import logo from "../../assets/Logo_Vertical.png";
 import { ListItemIcon, List, ListItem } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const NavDrawer = ({ navLinks }) => {
+  const navigate = useNavigate()
+
   return (
     <div className="NavDrawer">
       <div className="logo">
@@ -13,7 +16,7 @@ const NavDrawer = ({ navLinks }) => {
           return (
             <div className="btn" key={item.title}>
               <img src={item.icon} alt={item.title} />
-              <button key={item.title}>{item.title}</button>
+              <button key={item.title} onClick={() => {navigate(item.path)}}>{item.title}</button>
             </div>
           );
         })}
